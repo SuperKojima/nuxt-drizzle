@@ -1,10 +1,10 @@
 import { drizzle } from "drizzle-orm/node-postgres";
-import { Pool } from "pg";
+import pg from "pg";
 
 const runtimeConfig = useRuntimeConfig();
 
-const pool = new Pool({
+const pool = new pg.Pool({
     connectionString: runtimeConfig.databaseUrl,
 });
 
-export const db = drizzle(pool);
+export default drizzle(pool);
